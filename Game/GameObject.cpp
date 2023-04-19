@@ -14,7 +14,7 @@ IComponent* GameObject::operator [](std::string key) {
 }
 void GameObject::AddChild(GameObject child ) {
 
-	_Children.emplace_back(std::make_unique<GameObject>());
+	//_Children.push_back(std::make_unique<GameObject>(child));
 	
 }
 void GameObject::RemoveChild(GameObject* child) 
@@ -32,10 +32,19 @@ void GameObject::RemoveChild(GameObject* child)
 	}
 
 };
-//void GameObject::AddComponent(IComponent* component) {
-//	std::make_unique<IComponent>();
-//
-//	_Components[component->ComponentName] = ptr;
-//	
-//}
+void GameObject::AddComponent(IComponent* component) {
+	if (component != nullptr) {
+
+
+		if (_Components.find(component->GetName()) == _Components.end()) {
+			throw std::invalid_argument("component already exists");
+		}
+		_Components.insert(std::move(std::pair<std::string, std::unique_ptr<IComponent>>(component->GetName(), component)));
+	}
+	if (component == nullptr) {
+		throw std::invalid_argument("A pointer to a component snt to AddComponent with no address/ is null ptr");
+	}
+	////_Components[component->ComponentName] = std::make_unique(*component);
+	
+}
 	

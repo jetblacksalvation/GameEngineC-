@@ -3,7 +3,7 @@
 class IComponent
 {
 public:
-	std::string ComponentName = "IComponent";
-
+	const virtual std::string GetName() = 0;
+	
 };
 
