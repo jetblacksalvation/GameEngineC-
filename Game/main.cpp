@@ -7,6 +7,7 @@ int main()
 {
 	GameObject bruh;
 	bruh.AddChild();
-
+	bruh.AddComponent(new IComponent);	
+	bruh.AddComponent(new IComponent);
 
 }

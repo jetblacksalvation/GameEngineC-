@@ -35,12 +35,26 @@ void GameObject::RemoveChild(GameObject* child)
 void GameObject::AddComponent(IComponent* component) {
 	if (component != nullptr) {
 
+		try
+		{
+			if (_Components.find(component->GetName()) != _Components.end()) {
+				throw std::invalid_argument("component already exists");
 
-		if (_Components.find(component->GetName()) == _Components.end()) {
+			}
+		}
+		catch (const std::exception&)
+		{
+			//if error tracebacks to here, component already exists
 			throw std::invalid_argument("component already exists");
 		}
-		_Components.insert(std::move(std::pair<std::string, std::unique_ptr<IComponent>>(component->GetName(), component)));
+
+		//std::cout << "inserting\n"<<component->GetName();
+
+
+		_Components.insert(std::pair<std::string, std::unique_ptr<IComponent>>(component->GetName(), component));
+
 	}
+	
 	if (component == nullptr) {
 		throw std::invalid_argument("A pointer to a component snt to AddComponent with no address/ is null ptr");
 	}
