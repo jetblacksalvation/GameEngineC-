@@ -17,8 +17,8 @@ IComponent* GameObject::operator [](std::string key) {
 }
 void GameObject::AddChild(GameObject* child ) {
 	if (child == NULL) {
-		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::make_unique<GameObject>()));
-
+		//_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::make_unique<GameObject>()));
+		_Children.push_back(std::move(std::make_unique<GameObject>()));
 	}
 	else {
 		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::unique_ptr<GameObject>(child)));
