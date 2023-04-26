@@ -19,15 +19,12 @@ void GameObject::AddChild(GameObject* child ) {
 	if (child == NULL) {
 		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::make_unique<GameObject>()));
 
-<<<<<<< HEAD
 	}
 	else {
 		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::unique_ptr<GameObject>(child)));
 
 	}
-=======
-	//_Children.push_back(std::make_unique<GameObject>(child));
->>>>>>> 3509bc447ddbe72a9c5a2f489f62d49212194a90
+
 	
 }
 static int count = 0; 
@@ -48,27 +45,13 @@ void GameObject::RemoveChild(GameObject* child)
 	}
 
 };
-<<<<<<< HEAD
 void GameObject::RemoveComponent(IComponent* component) {
 	_Components.erase(component->GetName());
 }
 void GameObject::RemoveComponent(std::string name) {
 	_Components.erase(name);
 }
-void GameObject::AddComponent(IComponent* component) {
-	if (component != NULL) {
-		if (_Components.find(component->GetName()) != _Components.end()) {
-			throw std::invalid_argument("component already exists");
-		}
-		else {
-			_Components.insert({ component->GetName(), std::unique_ptr<IComponent>(component) });
 
-		}
-	}
-	if (component == NULL) {
-		throw std::invalid_argument("A pointer ");
-	}
-}
 std::vector<std::unique_ptr<GameObject>>& GameObject::GetChildren() {
 	return _Children;
 }
@@ -90,7 +73,6 @@ std::unordered_map<std::string, std::shared_ptr<IComponent>> GameObject::operato
 //	_Components[component->ComponentName] = ptr;
 //	
 //}
-=======
 void GameObject::AddComponent(IComponent* component) {
 	if (component != nullptr) {
 
@@ -120,5 +102,4 @@ void GameObject::AddComponent(IComponent* component) {
 	////_Components[component->ComponentName] = std::make_unique(*component);
 	
 }
->>>>>>> 3509bc447ddbe72a9c5a2f489f62d49212194a90
 	
