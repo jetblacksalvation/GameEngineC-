@@ -142,15 +142,19 @@
     <ClCompile Include="CountingSystem.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="IComponent.cpp" />
+    <ClCompile Include="ISystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SceneTree.cpp" />
+    <ClCompile Include="SystemHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CountingSystem.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="Includes.h" />
+    <ClInclude Include="ISystem.h" />
     <ClInclude Include="SceneTree.h" />
+    <ClInclude Include="SystemHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

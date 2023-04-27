@@ -22,7 +22,7 @@ void GameObject::AddChild(GameObject* child ) {
 	}
 	else {
 		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::unique_ptr<GameObject>(child)));
-
+	}
 	
 }
 static int count = 0; 

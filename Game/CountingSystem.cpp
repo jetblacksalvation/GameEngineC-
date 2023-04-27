@@ -1,2 +1,7 @@
 #include "CountingSystem.h"
-void CountingSystem::Process() {}
+class CountingSystem;
+
+void CountingSystem::Process() {
+	std::cout << this->x;
+	x++;
+};
