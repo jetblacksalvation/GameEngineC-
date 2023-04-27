@@ -17,13 +17,11 @@ IComponent* GameObject::operator [](std::string key) {
 }
 void GameObject::AddChild(GameObject* child ) {
 	if (child == NULL) {
-		//_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::make_unique<GameObject>()));
-		_Children.push_back(std::move(std::make_unique<GameObject>()));
+		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::make_unique<GameObject>()));
+
 	}
 	else {
 		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::unique_ptr<GameObject>(child)));
-
-	}
 
 	
 }
@@ -51,7 +49,20 @@ void GameObject::RemoveComponent(IComponent* component) {
 void GameObject::RemoveComponent(std::string name) {
 	_Components.erase(name);
 }
+void GameObject::AddComponent(IComponent* component) {
+	if (component != NULL) {
+		if (_Components.find(component->GetName()) != _Components.end()) {
+			throw std::invalid_argument("component already exists");
+		}
+		else {
+			_Components.insert({ component->GetName(), std::unique_ptr<IComponent>(component) });
 
+		}
+	}
+	if (component == NULL) {
+		throw std::invalid_argument("A pointer ");
+	}
+}
 std::vector<std::unique_ptr<GameObject>>& GameObject::GetChildren() {
 	return _Children;
 }
@@ -73,33 +84,4 @@ std::unordered_map<std::string, std::shared_ptr<IComponent>> GameObject::operato
 //	_Components[component->ComponentName] = ptr;
 //	
 //}
-void GameObject::AddComponent(IComponent* component) {
-	if (component != nullptr) {
-
-		try
-		{
-			if (_Components.find(component->GetName()) != _Components.end()) {
-				throw std::invalid_argument("component already exists");
-
-			}
-		}
-		catch (const std::exception&)
-		{
-			//if error tracebacks to here, component already exists
-			throw std::invalid_argument("component already exists");
-		}
-
-		//std::cout << "inserting\n"<<component->GetName();
-
-
-		_Components.insert(std::pair<std::string, std::unique_ptr<IComponent>>(component->GetName(), component));
-
-	}
-	
-	if (component == nullptr) {
-		throw std::invalid_argument("A pointer to a component snt to AddComponent with no address/ is null ptr");
-	}
-	////_Components[component->ComponentName] = std::make_unique(*component);
-	
-}
 	
