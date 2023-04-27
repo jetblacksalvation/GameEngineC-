@@ -17,11 +17,11 @@ IComponent* GameObject::operator [](std::string key) {
 }
 void GameObject::AddChild(GameObject* child ) {
 	if (child == NULL) {
-		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::make_unique<GameObject>()));
+		_Children.push_back(std::move(std::make_unique<GameObject>()));
 
 	}
 	else {
-		_Children.emplace_back(static_cast<std::unique_ptr<GameObject>&&>(std::unique_ptr<GameObject>(child)));
+		_Children.push_back(static_cast<std::unique_ptr<GameObject>&&>(std::unique_ptr<GameObject>(child)));
 	}
 	
 }
@@ -64,6 +64,7 @@ void GameObject::AddComponent(IComponent* component) {
 	}
 }
 std::vector<std::unique_ptr<GameObject>>& GameObject::GetChildren() {
+	//you need to store it as a reference
 	return _Children;
 }
 void GameObject::RemoveAllChildren() {
