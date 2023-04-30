@@ -5,15 +5,14 @@
 #include "GameInit.hpp"
 int main()
 {
-	SystemHandler systems;
-	systems.AddNewSystem(new DrawRectangleSystem);
-	root.AddComponents(new PositionComponent(400, 400), new PlayerInputComponent);
+	//SystemHandler systems;
+	//systems.AddNewSystem(new DrawRectangleSystem);
+	//root.AddComponents(new PositionComponent(400, 400), new PlayerInputComponent);
 	m_setup();
 	while (true)
 	{
 		al_clear_to_color({ 0,0,0,0 });
 
-		systems.RunSystems(0);
 
 		al_flip_display();
 	}
