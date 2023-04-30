@@ -17,5 +17,6 @@ int main()
 
 		al_flip_display();
 	}
+	//someting is leaking, plz fix :( 
 	return 0;
 }
