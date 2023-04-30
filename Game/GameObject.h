@@ -16,6 +16,10 @@ public:
 	void AddChild(GameObject* = {});
 	void RemoveChild(GameObject *);
 	void AddComponent(IComponent * );
+	template <typename... t >
+	void AddComponents(t ...args) {
+		(this->AddComponent(args), ...);
+	};
 	void RemoveComponent(std::string);
 	void RemoveComponent(IComponent*);
 	void RemoveAllChildren();

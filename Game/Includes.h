@@ -9,6 +9,7 @@
 #include "CountingSystem.h"
 #include "SystemHandler.h"
 #include "IComponent.h"
+#include "DrawRectangleSystem.h"
 #include <queue>
 
 #define root (*SceneTree::SceneRoot.get())

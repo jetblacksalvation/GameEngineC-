@@ -4,6 +4,6 @@ class CountingSystem : public ISystem
 {
 public:
 	int x = 0;
-	virtual void Process();
+	virtual void Process(double x);
 };
 

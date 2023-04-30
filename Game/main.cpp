@@ -2,25 +2,20 @@
 //
 
 #include "Includes.h"
-template<class T> T& unmove(T&& t) { return t; }
-
+#include "GameInit.hpp"
 int main()
 {
-	root.AddComponent(new IComponent);
-
-	for (int x = 0; x < 1000; x++) {
-		root.AddChild();
-	}
-	auto& list = root.GetChildren();//need to grab by reference, can't not do that
-	std::cout << list.size() << " is the size\n";
+	SystemHandler systems;
+	systems.AddNewSystem(new DrawRectangleSystem);
+	root.AddComponents(new PositionComponent(400, 400), new PlayerInputComponent);
+	m_setup();
+	while (true)
 	{
-		std::vector<std::unique_ptr<GameObject>>::iterator iter = list.begin();
-		while (iter != list.end()) {
+		al_clear_to_color({ 0,0,0,0 });
 
-			// if track is empty, remove it
-			iter = list.erase(iter);
-		}
+		systems.RunSystems(0);
+
+		al_flip_display();
 	}
-	std::cout << list.size() << " is end size\n";
 	return 0;
 }

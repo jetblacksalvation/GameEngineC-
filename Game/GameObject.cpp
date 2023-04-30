@@ -64,6 +64,7 @@ void GameObject::AddComponent(IComponent* component) {
 	}
 }
 std::vector<std::unique_ptr<GameObject>>& GameObject::GetChildren() {
+	//you can only really use the more complex type of iterator to be able to iterate without any runtime bugs 
 	//you need to store it as a reference
 	return _Children;
 }
