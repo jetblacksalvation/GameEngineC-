@@ -3,13 +3,13 @@
 
 #include "includes.h"
 #include "GameInit.hpp"
-void AddNewBlock(float, float);
+void AddNewBlock(float, float,float ,float);
 int main()
 {
 	SystemHandler systems;
-	systems.AddNewSystem(new DrawRectangleSystem);
-	AddNewBlock(100, 100);
-	AddNewBlock(20, 20);
+	systems.AddNewSystem(new DrawRectangleSystem);//here is the memory leak probably
+	AddNewBlock(400,400, 100, 400);
+	AddNewBlock(20, 20, 100, 400);
 
 	m_setup();
 	while (true)
@@ -24,7 +24,7 @@ int main()
 
 	return 0;
 }
-void AddNewBlock(float x, float y) {
+void AddNewBlock(float x, float y, float w, float h) {
 	root.AddChild();
-	root.GetChildren()[root.GetChildren().size() - 1].get()->AddComponents(new PositionComponent(x, y), new PlayerInputComponent);
+	root.GetChildren()[root.GetChildren().size() - 1].get()->AddComponents(new PositionComponent(x, y), new PlayerInputComponent, new RectangleComponent(w,h));
 }

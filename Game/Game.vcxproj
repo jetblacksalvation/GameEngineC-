@@ -183,6 +183,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PositionComponent.cpp" />
+    <ClCompile Include="RectangleComponent.cpp" />
     <ClCompile Include="SceneTree.cpp" />
     <ClCompile Include="SystemHandler.cpp" />
   </ItemGroup>
@@ -196,6 +197,7 @@
     <ClInclude Include="ISystem.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PositionComponent.h" />
+    <ClInclude Include="RectangleComponent.h" />
     <ClInclude Include="SceneTree.h" />
     <ClInclude Include="SystemHandler.h" />
   </ItemGroup>

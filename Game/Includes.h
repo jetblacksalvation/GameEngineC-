@@ -10,6 +10,7 @@
 #include "SystemHandler.h"
 #include "IComponent.h"
 #include "DrawRectangleSystem.h"
+#include "RectangleComponent.h"
 #include <queue>
 
 #define root (*SceneTree::SceneRoot.get())

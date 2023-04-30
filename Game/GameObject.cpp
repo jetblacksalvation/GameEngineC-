@@ -26,7 +26,6 @@ void GameObject::AddChild(GameObject* child ) {
 	}
 	
 }
-static int count = 0; 
 void GameObject::RemoveChild(GameObject* child) 
 {
 	decltype(_Children)::iterator iter = _Children.begin();
@@ -34,7 +33,6 @@ void GameObject::RemoveChild(GameObject* child)
 		if ((*iter).get()== child) {
 			// if track is empty, remove it
 			iter = _Children.erase(iter);
-			std::cout << "Number of children destroyed is =" << ++count << "\n";
 			return;
 		}
 		else {
@@ -52,7 +50,7 @@ void GameObject::RemoveComponent(std::string name) {
 }
 void GameObject::AddComponent(IComponent* component) {
 	if (component != NULL) {
-		if (_Components.find(component->GetName()) != _Components.end()) {
+		if (_Components.find(component->GetName()) !=  _Components.end()) {
 			throw std::invalid_argument("component already exists");
 		}
 		else {
@@ -61,7 +59,7 @@ void GameObject::AddComponent(IComponent* component) {
 		}
 	}
 	if (component == NULL) {
-		throw std::invalid_argument("A pointer ");
+		throw std::invalid_argument("A null pointer ");
 	}
 }
 std::vector<std::unique_ptr<GameObject>>& GameObject::GetChildren() {
