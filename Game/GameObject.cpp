@@ -5,7 +5,8 @@ GameObject* GameObject::GetParent() {
 };
 IComponent* GameObject::operator [](std::string key) {
 	if (_Components.find(key) == _Components.end()) {
-		throw std::invalid_argument("key not in _Components");
+		//throw std::invalid_argument("key not in _Components");
+		return 0;
 	}
 	else if (_Components.size() <= 0) {
 		return 0;

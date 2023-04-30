@@ -7,6 +7,7 @@ class DrawRectangleSystem :
     public ISystem
 {
     virtual void Process(double x) {
+        std::cout << SceneTree::GetGameObjects({ "PlayerInputComponent" , "PositionComponent" }).size() << " is the size\n";
         for (auto it : SceneTree::GetGameObjects({ "PlayerInputComponent" , "PositionComponent" })) {
 
             ALLEGRO_EVENT ev;

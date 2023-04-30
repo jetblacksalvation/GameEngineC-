@@ -12,17 +12,23 @@ std::vector<GameObject*> LevelOrderTraversal(std::vector<std::string> ComponentN
 		return{};
 	std::queue<GameObject*> q;
 
-	if(root[ ComponentNames].size() !=0)
-		q.push(&root);
+	q.push(&root);
+	if (root.operator[](ComponentNames).size() != 0) {
+		ret.push_back(&root);
+	}
 	while (!q.empty()) {
 		int n = q.size();
 		while (n > 0) {
+
 			GameObject* p = q.front();
-			ret.push_back(p);
+
 			q.pop();
+
 			for (size_t i = 0; i < p->GetChildren().size(); i++) {
+				q.push(p->GetChildren()[i].get());
+
 				if (p->GetChildren()[i].get()->operator[](ComponentNames).size() != 0) {
-					q.push(p->GetChildren()[i].get());
+					ret.push_back(p->GetChildren()[i].get());
 				}
 			}
 			n--;
