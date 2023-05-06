@@ -4,8 +4,10 @@
 struct RectangleComponent :
 public IComponent
 {
+    static inline const char* name = "RectangleComponent";
+
     std::string GetName() {
-        return "RectangleComponent";
+        return name;
     }
     RectangleComponent(float width, float hieght) {
         this->width = width;
@@ -14,6 +16,8 @@ public IComponent
         outline_color = white;
     }
     float width, hieght;
+
+
     ALLEGRO_COLOR fill_color = white;
     ALLEGRO_COLOR outline_color = white;
 

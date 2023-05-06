@@ -184,6 +184,7 @@
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PositionComponent.cpp" />
     <ClCompile Include="RectangleComponent.cpp" />
+    <ClCompile Include="ReflectSystem.cpp" />
     <ClCompile Include="SceneTree.cpp" />
     <ClCompile Include="SystemHandler.cpp" />
   </ItemGroup>
@@ -198,8 +199,12 @@
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PositionComponent.h" />
     <ClInclude Include="RectangleComponent.h" />
+    <ClInclude Include="ReflectableComponent.hpp" />
+    <ClInclude Include="ReflectorComponent.hpp" />
+    <ClInclude Include="ReflectSystem.h" />
     <ClInclude Include="SceneTree.h" />
     <ClInclude Include="SystemHandler.h" />
+    <ClInclude Include="VelocityComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

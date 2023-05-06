@@ -5,7 +5,7 @@ class PlayerInputComponent :
 {
 public:
     std::string GetGame() {
-        return "PlayerInputComponent";
+        return name;
     }
     inline static const char* name = "PlayerInputComponent";
 };

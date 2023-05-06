@@ -7,7 +7,8 @@ void AddNewBlock(float, float,float ,float);
 int main()
 {
 	SystemHandler systems;
-	systems.AddNewSystem(new DrawRectangleSystem);//here is the memory leak probably
+	systems.AddNewSystem(new DrawRectangleSystem);
+
 	AddNewBlock(400,400, 100, 400);
 	AddNewBlock(20, 20, 100, 400);
 
@@ -15,8 +16,9 @@ int main()
 	while (true)
 	{
 		al_clear_to_color({ 0,0,0,0 });
-		al_flush_event_queue(event_queue);
 		systems.RunSystems(0);
+		al_flush_event_queue(event_queue);
+
 		al_flip_display();
 	}
 	//someting is leaking, plz fix :( 
@@ -26,5 +28,5 @@ int main()
 }
 void AddNewBlock(float x, float y, float w, float h) {
 	root.AddChild();
-	root.GetChildren()[root.GetChildren().size() - 1].get()->AddComponents(new PositionComponent(x, y), new PlayerInputComponent, new RectangleComponent(w,h));
+	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(x, y), new PlayerInputComponent, new RectangleComponent(w,h));
 }

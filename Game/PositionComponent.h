@@ -9,7 +9,7 @@ public:
         this->y = y;
     }
     std::string GetName() override {
-        return "PositionComponent";
+        return name;
     }
 
 
