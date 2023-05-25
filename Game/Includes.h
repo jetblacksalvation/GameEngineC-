@@ -3,7 +3,7 @@
 #include "ISystem.h"
 
 #include<iostream>
-
+#include "DebuggingStuff.hpp"
 #include"GameObject.h"
 #include "SceneTree.h"
 #include "CountingSystem.h"

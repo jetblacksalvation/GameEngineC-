@@ -1,10 +1,8 @@
 #include "PlayerInputSystem.h"
 void PlayerInputSystem::Process(double x) {
-    std::cout << "process\n";
-    std::cout << "the siz e = " << SceneTree::GetGameObjects({ PlayerInputComponent::name , PositionComponent::name }).size() << "\n";
+
 	for (auto player_input : SceneTree::GetGameObjects({ PlayerInputComponent::name , PositionComponent::name})) {
 		ALLEGRO_EVENT ev;
-        std::cout << "input\n";
         auto& xpos = ((PositionComponent*)(*player_input)["PositionComponent"])->x;
         auto& ypos = ((PositionComponent*)(*player_input)["PositionComponent"])->y;
 

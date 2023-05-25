@@ -48,6 +48,6 @@ void AddNewBall(float x, float y, float w, float h) {
 void AddScreenBounderies() {
 	
 	root.AddChild();
-	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(0,0), new RectangleComponent(1200, 1200), new ReflectorComponent(ReflectorComponent::ReflectOutside));
+	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(0,0), new RectangleComponent(1000, 1000), new ReflectorComponent(ReflectorComponent::ReflectOutside));
 
 }
