@@ -182,6 +182,7 @@
     <ClCompile Include="ISystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
+    <ClCompile Include="PlayerInputSystem.cpp" />
     <ClCompile Include="PositionComponent.cpp" />
     <ClCompile Include="RectangleComponent.cpp" />
     <ClCompile Include="ReflectSystem.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Includes.h" />
     <ClInclude Include="ISystem.h" />
     <ClInclude Include="PlayerInputComponent.h" />
+    <ClInclude Include="PlayerInputSystem.h" />
     <ClInclude Include="PositionComponent.h" />
     <ClInclude Include="RectangleComponent.h" />
     <ClInclude Include="ReflectableComponent.hpp" />

@@ -4,14 +4,19 @@
 #include "includes.h"
 #include "GameInit.hpp"
 void AddNewBlock(float, float,float ,float);
+void AddNewBall(float, float, float, float);
+void AddScreenBounderies();
+
 int main()
 {
 	SystemHandler systems;
 	systems.AddNewSystem(new DrawRectangleSystem);
-
+	systems.AddNewSystem(new ReflectSystem);
+	systems.AddNewSystem(new PlayerInputSystem);
 	AddNewBlock(400,400, 100, 400);
 	AddNewBlock(20, 20, 100, 400);
-
+	AddNewBall(400, 400, 100, 100);
+	AddScreenBounderies();
 	m_setup();
 	while (true)
 	{
@@ -27,6 +32,20 @@ int main()
 	return 0;
 }
 void AddNewBlock(float x, float y, float w, float h) {
+
+	//ReflectorComponent::name, PositionComponent::name, RectangleComponent::name, VelocityComponent::name
 	root.AddChild();
-	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(x, y), new PlayerInputComponent, new RectangleComponent(w,h));
+	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(x, y),new ReflectableComponent, new RectangleComponent(w,h), new VelocityComponent, new PlayerInputComponent);
+}
+void AddNewBall(float x, float y, float w, float h) {
+
+	//ReflectorComponent::name, PositionComponent::name, RectangleComponent::name, VelocityComponent::name
+	root.AddChild();
+	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(x, y), new RectangleComponent(w, h), new VelocityComponent, new ReflectorComponent);
+}
+void AddScreenBounderies() {
+	
+	root.AddChild();
+	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(0,0), new RectangleComponent(1200, 1200), new ReflectorComponent(ReflectorComponent::ReflectOutside));
+
 }

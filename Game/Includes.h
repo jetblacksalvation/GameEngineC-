@@ -13,6 +13,8 @@
 #include "RectangleComponent.h"
 #include "ReflectableComponent.hpp"
 #include "ReflectorComponent.hpp"
+#include "ReflectSystem.h"
+#include "PlayerInputSystem.h"
 #include "VelocityComponent.hpp"
 #include <queue>
 
