@@ -7,6 +7,7 @@ void PlayerInputSystem::Process(double x) {
         auto& ypos = ((PositionComponent*)(*player_input)["PositionComponent"])->y;
 
 		al_wait_for_event(event_queue, &ev);
+
 		al_get_keyboard_state(&keys);
 
 
