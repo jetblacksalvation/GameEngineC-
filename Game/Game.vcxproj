@@ -191,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CountingSystem.h" />
+    <ClInclude Include="DebuggingStuff.hpp" />
     <ClInclude Include="DrawRectangleSystem.h" />
     <ClInclude Include="GameInit.hpp" />
     <ClInclude Include="GameObject.h" />

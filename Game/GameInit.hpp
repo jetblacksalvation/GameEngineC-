@@ -4,20 +4,20 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_image.h>
 
-static inline ALLEGRO_DISPLAY* display;
-static inline ALLEGRO_KEYBOARD_STATE key_state;
-static inline ALLEGRO_EVENT_QUEUE* event_queue;
-static inline ALLEGRO_TIMER* timer;
-static inline ALLEGRO_TRANSFORM camera_transform;
-static inline ALLEGRO_STATE previous_state;
+ inline ALLEGRO_DISPLAY* display;
+ inline ALLEGRO_KEYBOARD_STATE key_state;
+ inline ALLEGRO_EVENT_QUEUE* event_queue;
+ inline ALLEGRO_TIMER* timer;
+ inline ALLEGRO_TRANSFORM camera_transform;
+ inline ALLEGRO_STATE previous_state;
 
-static inline ALLEGRO_KEYBOARD_STATE keys;
-static inline ALLEGRO_COLOR white = { 255.f, 255.f, 255.f, 0.f };
-static inline ALLEGRO_COLOR blue = { 0.f,0.f,255.f,0.f };
-static inline ALLEGRO_COLOR green = { 0.f,255.f,0.f,0.f };
-static inline ALLEGRO_COLOR red = { 255.f,0.f,0.f,0.f };
+inline ALLEGRO_KEYBOARD_STATE keys;
+inline ALLEGRO_COLOR white = { 255.f, 255.f, 255.f, 0.f };
+inline ALLEGRO_COLOR blue = { 0.f,0.f,255.f,0.f };
+inline ALLEGRO_COLOR green = { 0.f,255.f,0.f,0.f };
+inline ALLEGRO_COLOR red = { 255.f,0.f,0.f,0.f };
 
-static inline void m_setup() {
+inline void m_setup() {
 	al_init();
 	al_install_keyboard();
 	al_init_primitives_addon();

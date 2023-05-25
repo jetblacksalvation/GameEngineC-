@@ -13,8 +13,10 @@ int main()
 	systems.AddNewSystem(new DrawRectangleSystem);
 	systems.AddNewSystem(new ReflectSystem);
 	systems.AddNewSystem(new PlayerInputSystem);
-	AddNewBlock(400,400, 100, 400);
-	AddNewBlock(20, 20, 100, 400);
+	//paddles 
+	AddNewBlock(600,400, 10, 60);
+	AddNewBlock(200, 400, 10, 60);
+
 	AddNewBall(400, 400, 100, 100);
 	AddScreenBounderies();
 	m_setup();
@@ -35,13 +37,13 @@ void AddNewBlock(float x, float y, float w, float h) {
 
 	//ReflectorComponent::name, PositionComponent::name, RectangleComponent::name, VelocityComponent::name
 	root.AddChild();
-	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(x, y),new ReflectableComponent, new RectangleComponent(w,h), new VelocityComponent, new PlayerInputComponent);
+	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(x, y), new ReflectorComponent, new RectangleComponent(w,h), new PlayerInputComponent);
 }
 void AddNewBall(float x, float y, float w, float h) {
 
 	//ReflectorComponent::name, PositionComponent::name, RectangleComponent::name, VelocityComponent::name
 	root.AddChild();
-	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(x, y), new RectangleComponent(w, h), new VelocityComponent, new ReflectorComponent);
+	root.GetChildren()[root.GetChildren().size() - 1]->AddComponents(new PositionComponent(x, y), new RectangleComponent(w, h), new VelocityComponent, new ReflectableComponent );
 }
 void AddScreenBounderies() {
 	

@@ -4,7 +4,7 @@ class PlayerInputComponent :
     public IComponent
 {
 public:
-    std::string GetGame() {
+    std::string GetName() override {
         return name;
     }
     inline static const char* name = "PlayerInputComponent";

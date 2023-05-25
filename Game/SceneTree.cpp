@@ -3,18 +3,22 @@ std::shared_ptr<GameObject>SceneTree::SceneRoot = std::make_shared<GameObject>()
 
 std::vector<GameObject*> LevelOrderTraversal(std::vector<std::string> ComponentNames);
 std::vector<GameObject*> SceneTree::GetGameObjects(std::vector<std::string> ComponentNames) {
-
-	return  LevelOrderTraversal(ComponentNames);
+	std::vector<GameObject*> output;
+	for (auto GameObj : LevelOrderTraversal(ComponentNames)) {
+		auto temp = (*GameObj)[ComponentNames];
+		if (temp.size() >= ComponentNames.size()) {
+			output.push_back(GameObj);
+		}
+	}
+	return  output;
 }
 std::vector<GameObject*> LevelOrderTraversal(std::vector<std::string> ComponentNames) {
 	std::vector<GameObject*> output({ &root });
 	size_t current_index = 0;
 	while (output.size() > current_index) {
 		for (auto& iter : output[current_index]->GetChildren()) {
-			if ((*iter)[ComponentNames].size() >= ComponentNames.size()) {
-				output.push_back(iter.get());
-
-			}
+			if(iter.get() != nullptr)
+			output.push_back(iter.get());
 		}
 		current_index++;
 	}
