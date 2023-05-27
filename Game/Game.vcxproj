@@ -188,6 +188,7 @@
     <ClCompile Include="ReflectSystem.cpp" />
     <ClCompile Include="SceneTree.cpp" />
     <ClCompile Include="SystemHandler.cpp" />
+    <ClCompile Include="VectorObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CountingSystem.h" />
@@ -207,6 +208,7 @@
     <ClInclude Include="ReflectSystem.h" />
     <ClInclude Include="SceneTree.h" />
     <ClInclude Include="SystemHandler.h" />
+    <ClInclude Include="VectorObject.h" />
     <ClInclude Include="VelocityComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
