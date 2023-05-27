@@ -16,6 +16,7 @@
 #include "ReflectSystem.h"
 #include "PlayerInputSystem.h"
 #include "VelocityComponent.hpp"
+#include "VectorObject.h"
 #include <queue>
 
 #define root (*SceneTree::SceneRoot.get())

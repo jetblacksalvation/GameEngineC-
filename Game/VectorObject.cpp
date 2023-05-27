@@ -10,23 +10,29 @@
 //
 //	float x, y;
 //
-//	VectorObject2D add(const VectorObject2D&);
-//	VectorObject2D sub(const VectorObject2D&);
-//	VectorObject2D div(const VectorObject2D&);
-//	VectorObject2D mul(const VectorObject2D&);
+//	VectorObject2D& add(const VectorObject2D&);
+//	VectorObject2D& sub(const VectorObject2D&);
+//	VectorObject2D& div(const VectorObject2D&);
+//	VectorObject2D& mul(const VectorObject2D&);
 //
 //
 //	float GetDotProduct(VectorObject2D);
 //
-//	float operator*(VectorObject2D);
-//	VectorObject2D operator+(VectorObject2D);
-//	VectorObject2D operator-(VectorObject2D);
-// 	friend std::ostream& operator<<(std::ostream&, const VectorObject2D&);
-//
+//	friend VectorObject2D& operator+(VectorObject2D, const VectorObject2D&);
+//	friend VectorObject2D& operator-(VectorObject2D, const VectorObject2D&);
+//	friend std::ostream& operator<<(std::ostream&, const VectorObject2D&);
 //};
+
 
 VectorObject2D::VectorObject2D() { this->x = 0; this->y = 0; };
 VectorObject2D::VectorObject2D(float x, float y ) { this->x = x; this->y = y; };
+VectorObject2D& operator+(VectorObject2D left, const  VectorObject2D& right) {
+	return left.sub(right);
+
+}
+VectorObject2D& operator-(VectorObject2D left, const  VectorObject2D& right) {
+	return left.add(right);
+}
 VectorObject2D& VectorObject2D::add(const VectorObject2D& obj) {
 	this->x += obj.x;
 	this->y += obj.x;

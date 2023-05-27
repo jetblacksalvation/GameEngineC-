@@ -13,6 +13,9 @@ int main()
 	systems.AddNewSystem(new DrawRectangleSystem);
 	systems.AddNewSystem(new ReflectSystem);
 	systems.AddNewSystem(new PlayerInputSystem);
+	VectorObject2D bruh(1, 2);
+	bruh.sub({ 1,1 });
+	std::cout << bruh<<'\n';
 	//paddles 
 	AddNewBlock(600,400, 10, 60);
 	AddNewBlock(200, 400, 10, 60);

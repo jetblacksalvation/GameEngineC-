@@ -19,9 +19,8 @@ public:
 
 	float GetDotProduct(VectorObject2D);
 
-	float operator*(VectorObject2D);
-	VectorObject2D& operator+(VectorObject2D);
-	VectorObject2D& operator-(VectorObject2D);
+	friend VectorObject2D& operator+(VectorObject2D, const VectorObject2D&);
+	friend VectorObject2D& operator-(VectorObject2D, const VectorObject2D&);
 	friend std::ostream& operator<<(std::ostream&, const VectorObject2D&);
 };
 
