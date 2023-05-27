@@ -16,6 +16,7 @@ public:
 	VectorObject2D& div(const VectorObject2D&);
 	VectorObject2D& mul(const VectorObject2D&);
 
+	bool operator==(const VectorObject2D&);
 
 	float GetDotProduct(VectorObject2D);
 

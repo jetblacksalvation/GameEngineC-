@@ -9,6 +9,7 @@
 //	VectorObject2D(float x, float y);
 //
 //	float x, y;
+//	bool operator==(const VectorObject2D&);
 //
 //	VectorObject2D& add(const VectorObject2D&);
 //	VectorObject2D& sub(const VectorObject2D&);
@@ -56,4 +57,7 @@ VectorObject2D& VectorObject2D::mul(const VectorObject2D& obj) {
 std::ostream& operator<<(std::ostream& stream, const VectorObject2D& vec2) {
 	stream << '(' << vec2.x << ',' << vec2.y << ')';
 	return stream;
+}
+bool VectorObject2D::operator==(const VectorObject2D& obj) {
+	return this->x == obj.x and this->y == obj.y;
 }
