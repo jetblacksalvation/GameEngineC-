@@ -15,7 +15,8 @@
 //	VectorObject2D& sub(const VectorObject2D&);
 //	VectorObject2D& div(const VectorObject2D&);
 //	VectorObject2D& mul(const VectorObject2D&);
-//
+//	VectorObject2D(float x, float y, float magnitude);
+//	VectorObject2D(float x, float y, float magnitude, float radians);
 //
 //	float GetDotProduct(VectorObject2D);
 //
